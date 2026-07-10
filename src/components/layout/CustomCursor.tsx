@@ -7,10 +7,15 @@ export function CustomCursor() {
   const ringRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     // Only show on non-touch devices
-    if (window.matchMedia("(hover: none)").matches) return;
+    if (typeof window === "undefined" || window.matchMedia("(hover: none)").matches) return;
 
     let mouseX = 0, mouseY = 0;
     let ringX = 0, ringY = 0;
@@ -66,6 +71,8 @@ export function CustomCursor() {
       observer.disconnect();
     };
   }, [isVisible]);
+
+  if (!mounted) return null;
 
   if (typeof window !== "undefined" && window.matchMedia("(hover: none)").matches) {
     return null;

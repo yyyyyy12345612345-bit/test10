@@ -38,11 +38,16 @@ export function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [mounted, setMounted] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const { openCart, getItemCount } = useCartStore();
   const { count: wishlistCount } = useWishlistStore();
   const cartCount = getItemCount();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -149,7 +154,7 @@ export function Navbar() {
               aria-label="Wishlist"
             >
               <Heart className="w-5 h-5" />
-              {wishlistCount() > 0 && (
+              {mounted && wishlistCount() > 0 && (
                 <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-gold text-noir text-[10px] font-bold rounded-full flex items-center justify-center">
                   {wishlistCount()}
                 </span>
@@ -163,7 +168,7 @@ export function Navbar() {
               aria-label={`Cart — ${cartCount} items`}
             >
               <ShoppingBag className="w-5 h-5" />
-              {cartCount > 0 && (
+              {mounted && cartCount > 0 && (
                 <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-gold text-noir text-[10px] font-bold rounded-full flex items-center justify-center">
                   {cartCount > 9 ? "9+" : cartCount}
                 </span>

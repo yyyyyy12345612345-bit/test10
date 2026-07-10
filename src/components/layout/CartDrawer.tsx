@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { X, Minus, Plus, Trash2, ShoppingBag, ArrowRight } from "lucide-react";
@@ -23,6 +23,11 @@ export function CartDrawer() {
 
   const totals = getTotals();
   const drawerRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Close on outside click
   useEffect(() => {
@@ -49,6 +54,8 @@ export function CartDrawer() {
 
   const shippingProgress = Math.min((totals.subtotal / FREE_SHIPPING_THRESHOLD) * 100, 100);
   const amountToFreeShipping = FREE_SHIPPING_THRESHOLD - totals.subtotal;
+
+  if (!mounted) return null;
 
   return (
     <>
