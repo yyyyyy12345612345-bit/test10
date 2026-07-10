@@ -124,16 +124,14 @@ export function CartDrawer() {
                 <p className="font-heading text-2xl text-pearl mb-2">Your cart is empty</p>
                 <p className="text-sm text-silver">Add some pieces to get started.</p>
               </div>
-              <button onClick={closeCart} asChild>
-                <Link
-                  href="/shop"
-                  className="btn-primary"
-                  onClick={closeCart}
-                >
-                  <span>Shop Now</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </button>
+              <Link
+                href="/shop"
+                className="btn-primary"
+                onClick={closeCart}
+              >
+                <span>Shop Now</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           ) : (
             <div className="flex flex-col divide-y divide-fog/20">
