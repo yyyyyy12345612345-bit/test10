@@ -74,8 +74,8 @@ export function HeroSection() {
           fill
           className="object-cover object-center"
           priority
-          quality={90}
           sizes="100vw"
+          unoptimized
         />
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-noir/90 via-noir/60 to-transparent" />

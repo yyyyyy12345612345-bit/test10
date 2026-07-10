@@ -64,6 +64,7 @@ export function ProductCard({ product, showRank, rank }: ProductCardProps) {
             fill
             className="primary object-cover"
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            unoptimized
           />
           {/* Secondary image (hover reveal) */}
           <Image
@@ -72,6 +73,7 @@ export function ProductCard({ product, showRank, rank }: ProductCardProps) {
             fill
             className="secondary object-cover"
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            unoptimized
           />
 
           {/* Badges */}

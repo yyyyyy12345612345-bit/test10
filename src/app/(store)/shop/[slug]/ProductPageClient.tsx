@@ -100,7 +100,7 @@ export function ProductPageClient({ product, related }: Props) {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
-                quality={95}
+                unoptimized
               />
               {/* Badges */}
               <div className="absolute top-4 left-4 flex flex-col gap-2">
@@ -127,7 +127,7 @@ export function ProductPageClient({ product, related }: Props) {
                     style={{ aspectRatio: "3/4" }}
                     aria-label={img.alt}
                   >
-                    <Image src={img.url} alt={img.alt} fill className="object-cover" sizes="80px" />
+                    <Image src={img.url} alt={img.alt} fill className="object-cover" sizes="80px" unoptimized />
                   </button>
                 ))}
               </div>
