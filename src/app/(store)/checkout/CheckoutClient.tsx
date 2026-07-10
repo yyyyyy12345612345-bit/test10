@@ -8,7 +8,7 @@ import {
   ChevronDown, Apple, Smartphone
 } from "lucide-react";
 import { useCartStore } from "@/store/cartStore";
-import { formatPrice, formatDate } from "@/lib/data/products";
+import { formatPrice } from "@/lib/data/products";
 import { SHIPPING_METHODS } from "@/types/cart";
 import { getEstimatedDelivery } from "@/lib/utils";
 
