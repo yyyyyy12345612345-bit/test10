@@ -586,3 +586,43 @@ canvas {
 @media print {
   .no-print { display: none; }
 }
+
+/* ==================== CUSTOM CURSOR ==================== */
+.cursor-dot, .cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 50%;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  display: block;
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--gold);
+  margin-top: -3px;
+  margin-left: -3px;
+}
+
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--gold);
+  margin-top: -16px;
+  margin-left: -16px;
+  transition: width 0.3s var(--ease-expo), height 0.3s var(--ease-expo), border-color 0.3s var(--ease-expo), background-color 0.3s var(--ease-expo);
+  mix-blend-mode: difference;
+}
+
+.cursor-ring.hover-state {
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
+  margin-left: -24px;
+  background-color: rgba(201, 168, 76, 0.1);
+  border-color: var(--gold-light);
+}

@@ -27,18 +27,16 @@ export function CustomCursor() {
       if (!isVisible) setIsVisible(true);
 
       if (dotRef.current) {
-        dotRef.current.style.left = `${mouseX}px`;
-        dotRef.current.style.top = `${mouseY}px`;
+        dotRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
       }
     };
 
     const animate = () => {
-      ringX += (mouseX - ringX) * 0.12;
-      ringY += (mouseY - ringY) * 0.12;
+      ringX += (mouseX - ringX) * 0.15;
+      ringY += (mouseY - ringY) * 0.15;
 
       if (ringRef.current) {
-        ringRef.current.style.left = `${ringX}px`;
-        ringRef.current.style.top = `${ringY}px`;
+        ringRef.current.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
       }
 
       animFrame = requestAnimationFrame(animate);
